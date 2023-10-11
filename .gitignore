@@ -36,3 +36,4 @@
 *.class
 **canvas.xml
 *.vscode
+**priv**
