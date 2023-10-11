@@ -37,3 +37,4 @@
 **canvas.xml
 *.vscode
 **priv**
+**workspace.xml**
