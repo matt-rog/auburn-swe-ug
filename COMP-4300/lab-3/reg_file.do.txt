@@ -1,0 +1,22 @@
+vsim reg_file
+
+add wave -position end sim:/reg_file/data_in
+add wave -position end sim:/reg_file/readnotwrite
+add wave -position end sim:/reg_file/clock
+add wave -position end sim:/reg_file/reg_number
+add wave -position end sim:/reg_file/data_out
+
+force -freeze sim:/reg_file/reg_number 5'h01 0
+
+# test 1: std use, write to register
+force -freeze sim:/reg_file/data_in 32'hdeadbeaf 0
+force -freeze sim:/reg_file/readnotwrite 0 0
+force -freeze sim:/reg_file/clock 1 0
+run
+pause
+
+# test 2: std use, read from register
+force -freeze sim:/reg_file/readnotwrite 1 0
+force -freeze sim:/reg_file/clock 1 0
+run
+pause

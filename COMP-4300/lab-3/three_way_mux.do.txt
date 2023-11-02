@@ -1,0 +1,26 @@
+vsim threeway_mux
+
+add wave -position insertpoint sim:/threeway_mux/*
+force -freeze sim:/threeway_mux/input_0 32'h1eaf1e55 0
+force -freeze sim:/threeway_mux/input_1 32'hba5eba11 0
+force -freeze sim:/threeway_mux/input_2 32'hdeadbeaf 0
+
+# test 1: std use, pick input 0
+force -freeze sim:/threeway_mux/which 00 0
+run
+pause
+
+# test 2: std use, pick input 1
+force -freeze sim:/threeway_mux/which 01 0
+run
+pause
+
+# test 3: std use, pick input 2
+force -freeze sim:/threeway_mux/which 10 0
+run
+pause
+
+# test 4: non-std use, pick input 3
+force -freeze sim:/threeway_mux/which 11 0
+run
+pause

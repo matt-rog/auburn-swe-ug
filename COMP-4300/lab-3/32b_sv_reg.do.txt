@@ -1,0 +1,14 @@
+vsim dlx_register
+add wave -position insertpoint sim:/dlx_register/*
+
+force -freeze sim:/dlx_register/in_val 32'hdeadbeef 0
+
+# Test 1: std use, clock pulse
+force -freeze sim:/dlx_register/clock 1 0
+run
+pause
+
+# test 2: std use, no clock pulse
+force -freeze sim:/dlx_register/clock 0 0
+run
+pause

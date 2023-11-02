@@ -1,0 +1,20 @@
+vsim pcplusone
+
+add wave -position insertpoint sim:/pcplusone/*
+force -freeze sim:/pcplusone/input 32'h00000000 0
+
+# test 1: std use, incr on clock
+force -freeze sim:/pcplusone/clock 1 0
+run
+pause
+
+# test 2: std use, dont incr w/o clock
+force -freeze sim:/pcplusone/clock 0 0
+run
+pause
+
+# test 3: std use, handle overflow
+force -freeze sim:/pcplusone/input 32'hffffffff 0
+force -freeze sim:/pcplusone/clock 1 0 
+run
+pause
