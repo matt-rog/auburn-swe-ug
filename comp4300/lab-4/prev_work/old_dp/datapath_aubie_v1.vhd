@@ -8,8 +8,8 @@ entity reg_file is
 end entity reg_file;
 -- entity alu (lab 3)
 -- arch of reg_file
-architecture behaviour of reg_file is
-type reg_type is array (0 to 31) of dlx_word;
+architecture behavior of reg_file is
+	type reg_type is array (0 to 31) of dlx_word;
 begin
 	reg_file_process : process(data_in, clock, readnotwrite, reg_number) is
 	variable registers : reg_type;
@@ -20,14 +20,14 @@ begin
 			reg_number_int := bv_to_integer(reg_number);
 
 			if readnotwrite = '1' then -- read operation		
-				data_out <= registers(reg_number_int) after r_prop_delay;
+				data_out <= registers(reg_number_int); --after r_prop_delay;
 			else -- write operation
 				registers(reg_number_int) := data_in;
 			end if;
 
 		end if;
 	end process reg_file_process; 
-end architecture behaviour; 
+end architecture behavior; 
 -- end arch of reg_file
 
 
@@ -40,7 +40,7 @@ entity alu is
 end entity alu;
 -- alu_operation_code values
 -- 0000 unsigned add
--- 0001 signed add
+-- 0001 unsigned subtract
 -- 0010 2's compl add
 -- 0011 2's compl sub
 -- 0100 2's compl mul
@@ -54,11 +54,10 @@ end entity alu;
 -- 1100-1111 output all zeros
 -- error code values
 -- 0000 = no error
--- 0001 = overflow (too big positive)
--- 0010 = underflow (too small neagative)
--- 0011 = divide by zero
+-- 0001 = overflow/underflow
+-- 0010 = divide by zero
 -- arch of alu
-architecture behaviour of alu is
+architecture behavior of alu is
 begin
 	aluProcess : process(operand1, operand2, operation) is
 	-- init error states 
@@ -165,7 +164,7 @@ begin
 		when others => result <= x"00000000" after prop_delay; -- default
 	end case;
 	end process aluProcess; 
-end architecture behaviour; 
+end architecture behavior; 
 -- end arch of alu
 
 
@@ -177,7 +176,7 @@ entity dlx_register is
 end entity dlx_register;
 -- end entity dlx_register
 -- arch of dlx_register
-architecture behaviour of dlx_register is
+architecture behavior of dlx_register is
 begin
 	dlx_register_process : process(in_val, clock) is
 	begin
@@ -187,7 +186,7 @@ begin
 		end if;
 
 	end process dlx_register_process; 
-end architecture behaviour;
+end architecture behavior;
 -- end arch of dlx_register
 
 
@@ -200,7 +199,7 @@ entity pcplusone is
 end entity pcplusone;
 -- end entity pcplusone
 -- arch of pcplusone
-architecture behaviour of pcplusone is
+architecture behavior of pcplusone is
 begin
 	pcplusone_process : process(input, clock) is
 	variable one : dlx_word;
@@ -219,7 +218,7 @@ begin
 			output <= result after prop_delay;
 		end if;
 	end process pcplusone_process; 
-end architecture behaviour; 
+end architecture behavior; 
 -- end arch of pcplusone
 
 
@@ -231,7 +230,7 @@ entity mux is
 end entity mux;
 -- end entity mux
 -- arch of mux
-architecture behaviour of mux is
+architecture behavior of mux is
 begin
 	mux_process : process(input_0, input_1, which) is
 	begin
@@ -244,7 +243,7 @@ begin
 		end case;
 
 	end process mux_process; 
-end architecture behaviour; 
+end architecture behavior; 
 -- end arch of mux
 
 
@@ -257,7 +256,7 @@ entity threeway_mux is
 end entity threeway_mux;
 -- end entity threeway mux
 -- arch of threeway mux
-architecture behaviour of threeway_mux is
+architecture behavior of threeway_mux is
 begin
 	threeway_mux_process : process(input_0, input_1, input_2, which) is
 	begin
@@ -274,19 +273,20 @@ begin
 		end case;
 
 	end process threeway_mux_process; 
-end architecture behaviour; 
+end architecture behavior; 
 -- end arch of threeway mux
 
 
 -- entity regfile
 use work.dlx_types.all;
+use work.bv_arithmetic.all;
 entity reg_file is
 	port(data_in : in dlx_word; readnotwrite, clock: in bit; data_out: out
 		dlx_word; reg_number : in register_index);
 end entity reg_file;
 -- end entity regfile
 -- arch of regfile
-architecture behaviour of reg_file is
+architecture behavior of reg_file is
 type reg_type is array (0 to 31) of dlx_word;
 begin
 	reg_file_process : process(data_in, clock, readnotwrite, reg_number) is
@@ -299,7 +299,7 @@ begin
 			reg_number_int := bv_to_integer(reg_number);
 
 			if readnotwrite = '1' then -- read operation		
-				data_out <= registers(reg_number_int) after r_prop_delay;
+				data_out <= registers(reg_number_int);-- after r_prop_delay;
 			else -- write operation
 				registers(reg_number_int) := data_in;
 			end if;
@@ -308,7 +308,7 @@ begin
 			
 
 	end process reg_file_process; 
-end architecture behaviour; 
+end architecture behavior; 
 -- end arch of regfile
 
 
