@@ -103,7 +103,7 @@ void *consumer(void *ptr)
         // #6#END# DO NOT MODIFY THIS COMMENT LINE!
     }
 
-    // exit the thread, reurn with 0, which means "success", see step 7 in prssh mbr0039@gate.eng.auburn.eduoducer
+    // exit the thread, reurn with 0, which means "success", see step 7 in producer
     // #7#BEGIN# DO NOT MODIFY THIS COMMENT LINE!
     pthread_exit(0);
     // #7#END# DO NOT MODIFY THIS COMMENT LINE!
