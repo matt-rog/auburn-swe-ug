@@ -1,11 +1,11 @@
-// Matthew Roger | mbr0039
-// Compile by running: g++ Matthew_Rogers -o output_file
+// First Last | user
+// Compile by running: g++ First_Last -o output_file
 // Sources:
 // - Used discussion of piazza to handle character printing from PCB struct
 
 // #0#BEGIN# DO NOT MODIFIE THIS COMMENT LINE!
-// Matthew
-// Rogers
+// First
+// Last
 // #0#END# DO NOT MODIFIE THIS COMMENT LINE!
 
 #include "stdio.h"

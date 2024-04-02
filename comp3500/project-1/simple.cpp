@@ -1,5 +1,5 @@
-/* Matthew Rogers
-* mbr0039@auburn.edu
+/* First Last
+* user@auburn.edu
 * simple.cpp
 * Program Description:
     * Accepts an n-length array of positive integers, calculates n!, and calculates the std dev of the integers.
