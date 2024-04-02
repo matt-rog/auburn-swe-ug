@@ -1,0 +1,20 @@
+Script started on Mon 28 Aug 2023 10:13:44 AM CDT
+[?1034hbash-4.2$ pwd
+/home/u1/user/comp_3500
+bash-4.2$ ls
+commands.script  hello.txt
+bash-4.2$ mkdir project_1
+bash-4.2$ mv hello.txt \[K.[Kpro`[Kject_1/
+bash-4.2$ cd project_1/
+bash-4.2$ chmod 777 hello.txt
+bash-4.2$ rm hello.txt
+bash-4.2$ clear
+[3;J[H[2Jbash-4.2$ who -q
+abc1234 abc1234 abc1234
+# users=3
+bash-4.2$ nproc
+16
+bash-4.2$ exit
+exit
+
+Script done on Mon 28 Aug 2023 10:15:30 AM CDT

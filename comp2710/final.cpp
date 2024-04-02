@@ -1,7 +1,7 @@
 // Please change the following into your name
 // #0#BEGIN# DO NOT MODIFY COMMENT LINE!
-// Matthew
-// Rogers
+// First
+// Last
 // #0#END# DO NOT MODIFY COMMENT LINE!
 #include <stdio.h>
 #include <stdlib.h>
@@ -121,7 +121,7 @@ int main (int argc, char **argv) {
     int i;
     // change your the following id into your banner id
     // #6#BEGIN# DO NOT MODIFY COMMENT LINE!
-    int banner_id = 904168594;
+    int banner_id = 1;
     // #6#END# DO NOT MODIFY COMMENT LINE!
     printf("Banner id: %d\n", banner_id);
 
